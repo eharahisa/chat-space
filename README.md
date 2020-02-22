@@ -13,13 +13,14 @@
 ## usersテーブル
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false|
-|add_index|email|string|null: false, unique: true|
-|password|string|null: false|
+|name|string|null: false,add_index|
+|email|string|null: false, unique: true|
+
 
 ### Association
 - has_many :messages
 - has_many :groups, through: :users_groups
+- has_many :groups_users
 
 
 ## groupsテーブル
@@ -29,9 +30,10 @@
 
 ### Association
 - has_many :messages
-- has_many :users, through: :users_groups
+- has_many :users, through: :groups_users
+- has_many :groups_users
 
-## users_groupsテーブル
+## groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
 |user_id|integer|null: false, foreign_key: true|
