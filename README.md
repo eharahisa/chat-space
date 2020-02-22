@@ -18,7 +18,6 @@
 |name|string|null: false|
 |add_index|email|string|null: false, unique: true|
 |password|string|null: false|
-|group_id|integer|null: false, foreign_key|
 
 ### Association
 - has_many :messages
@@ -28,10 +27,10 @@
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|group_name|string|null: false|
-|user_id|string|null: false, foreign_key: true|
+|name|string|null: false|
+
 ### Association
-- belong_to :message
+- has_many :messages
 - has_many :users, through: :users_groups
 
 ## users_groupsテーブル
