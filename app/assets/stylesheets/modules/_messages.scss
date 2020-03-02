@@ -117,10 +117,14 @@ $gur: #999999;
         padding-bottom: 12px;
         color: $san;
         display: flex;
+        position: relative;
+        top: 30px;
         &__day{
           color: $gur;
           font-size: 12px;
           margin-left: 10px;
+          position:relative;
+          left: 25px;
         }
       }
       .text{
