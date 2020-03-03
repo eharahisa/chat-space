@@ -117,10 +117,14 @@ $gur: #999999;
         padding-bottom: 12px;
         color: $san;
         display: flex;
+        position: relative;
+        top: 30px;
         &__day{
           color: $gur;
           font-size: 12px;
           margin-left: 10px;
+          position: relative;
+          left: 25px;
         }
       }
       .text{
@@ -136,6 +140,7 @@ $gur: #999999;
       .new_message{
         display: flex;
         .input-box{
+          display:flex;
           position: relative;
           width: 100%;
           &__text{
@@ -148,13 +153,14 @@ $gur: #999999;
             line-height: center;
             position: absolute;
             top: 10px;
-            right: 10px;
+            right: 130px;
             &__file{
               display: none;
             }
           }
         }
         .submit-btn{
+          
           width: 100px;
           height: 50px;
           padding: 0 30px;

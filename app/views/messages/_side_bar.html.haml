@@ -11,8 +11,11 @@
   .side_bar__group-list
     - current_user.groups.each do |group|
       .group-set
-        = link_to '#', class:"group-set-set" do
-          .group-set__item
-            = group.name
-          .group-set__message
-            メッセージはまだありません。
+        = link_to group_messages_path(group) do
+          .group-set-set
+            .group-set__item
+              = group.name
+            .group-set__message
+              = group.show_last_message
+
+            

@@ -2,29 +2,20 @@
   .main_chat__group-info
     .main-group
       .left-group-box
-        text
+        = @group.name
         .main-member
-          Member: masa
-    = link_to "#", class:"edit-btn" do
-      Edit
+          ="Member:" + @group.users.pluck(:name).join(",")
+    = link_to edit_group_path(@group.id) do
+      .edit-btn
+        Edit
   .main_chat__message-list
-    .comment-group
-      masa
-      .comment-group__day
-        2019/11/20(Wed) 17:43:01
-    .text
-      おはよう
-    .comment-group
-      masa
-      .comment-group__day
-        2019/11/20(Wed) 19:43:01
-    .text
-      お願いします
+    = render @messages
   .form
-    %form.new_message
+    = form_for [@group, @message] do |f|
       .input-box
-        %input{type: "text", class: "input-box__text", placeholder: "type a message"}
-        %label{class: "input-box__image"} 
+        = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+        = f.label :image, class: 'input-box__image' do
           = icon('fas', 'image')
-          %input{type:"file" , class: "input-box__image__file"}
-      %input{type: "submit",class: "submit-btn", value: "Send"}
+          = f.file_field :image, class: 'input-box__image__file'
+        = f.submit 'Send', class: 'submit-btn'
+      
