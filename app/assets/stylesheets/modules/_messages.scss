@@ -46,6 +46,7 @@ $gur: #999999;
      }
      &__group-list{
        height: calc(100vh - 100px);
+       overflow: scroll;
        .group-set{
          height: 91px;
          padding-top:20px;
